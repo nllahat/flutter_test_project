@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_proj/presentation/pages/sign_in/sign_in_page.dart';
 import 'package:my_proj/presentation/pages/splash/splash_page.dart';
 
 class Router {
@@ -10,6 +11,11 @@ class Router {
       case Router.splashPage:
         return MaterialPageRoute<dynamic>(
           builder: (_) => SplashPage(),
+          settings: settings,
+        );
+      case Router.signInPage:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => SignInPage(),
           settings: settings,
         );
       default:
