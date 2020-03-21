@@ -17,7 +17,7 @@ void main() {
     User user = User(
         id: UniqueId(),
         emailAddress: EmailAddress('test@test.com'),
-        name: 'test');
+        name: StringSingleLine('test'));
 
     setUp(() {
       mockIAuthFacade = MockIAuthFacade();

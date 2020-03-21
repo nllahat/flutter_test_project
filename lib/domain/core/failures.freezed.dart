@@ -16,12 +16,14 @@ mixin _$ValueFailure<T> {
   Result when<Result extends Object>({
     @required Result invalidEmail(@required T failedValue),
     @required Result shortPassword(@required T failedValue),
+    @required Result multiline(@required T failedValue),
   });
 
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(@required T failedValue),
     Result shortPassword(@required T failedValue),
+    Result multiline(@required T failedValue),
     @required Result orElse(),
   });
 
@@ -29,12 +31,14 @@ mixin _$ValueFailure<T> {
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result shortPassword(ShortPassword<T> value),
+    @required Result multiline(Multiline<T> value),
   });
 
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
     Result shortPassword(ShortPassword<T> value),
+    Result multiline(Multiline<T> value),
     @required Result orElse(),
   });
 }
@@ -50,6 +54,12 @@ class _$ValueFailureTearOff {
 
   ShortPassword<T> shortPassword<T>({@required T failedValue}) {
     return ShortPassword<T>(
+      failedValue: failedValue,
+    );
+  }
+
+  Multiline<T> multiline<T>({@required T failedValue}) {
+    return Multiline<T>(
       failedValue: failedValue,
     );
   }
@@ -106,9 +116,11 @@ class _$InvalidEmail<T>
   Result when<Result extends Object>({
     @required Result invalidEmail(@required T failedValue),
     @required Result shortPassword(@required T failedValue),
+    @required Result multiline(@required T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
+    assert(multiline != null);
     return invalidEmail(failedValue);
   }
 
@@ -117,6 +129,7 @@ class _$InvalidEmail<T>
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(@required T failedValue),
     Result shortPassword(@required T failedValue),
+    Result multiline(@required T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -131,9 +144,11 @@ class _$InvalidEmail<T>
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result shortPassword(ShortPassword<T> value),
+    @required Result multiline(Multiline<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
+    assert(multiline != null);
     return invalidEmail(this);
   }
 
@@ -142,6 +157,7 @@ class _$InvalidEmail<T>
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
     Result shortPassword(ShortPassword<T> value),
+    Result multiline(Multiline<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -211,9 +227,11 @@ class _$ShortPassword<T>
   Result when<Result extends Object>({
     @required Result invalidEmail(@required T failedValue),
     @required Result shortPassword(@required T failedValue),
+    @required Result multiline(@required T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
+    assert(multiline != null);
     return shortPassword(failedValue);
   }
 
@@ -222,6 +240,7 @@ class _$ShortPassword<T>
   Result maybeWhen<Result extends Object>({
     Result invalidEmail(@required T failedValue),
     Result shortPassword(@required T failedValue),
+    Result multiline(@required T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -236,9 +255,11 @@ class _$ShortPassword<T>
   Result map<Result extends Object>({
     @required Result invalidEmail(InvalidEmail<T> value),
     @required Result shortPassword(ShortPassword<T> value),
+    @required Result multiline(Multiline<T> value),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
+    assert(multiline != null);
     return shortPassword(this);
   }
 
@@ -247,6 +268,7 @@ class _$ShortPassword<T>
   Result maybeMap<Result extends Object>({
     Result invalidEmail(InvalidEmail<T> value),
     Result shortPassword(ShortPassword<T> value),
+    Result multiline(Multiline<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -265,4 +287,112 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
 
   @override
   ShortPassword<T> copyWith({T failedValue});
+}
+
+class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
+  const _$Multiline({@required this.failedValue}) : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.multiline(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.multiline'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Multiline<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  _$Multiline<T> copyWith({
+    Object failedValue = freezed,
+  }) {
+    return _$Multiline<T>(
+      failedValue: failedValue == freezed ? this.failedValue : failedValue as T,
+    );
+  }
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result invalidEmail(@required T failedValue),
+    @required Result shortPassword(@required T failedValue),
+    @required Result multiline(@required T failedValue),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(multiline != null);
+    return multiline(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result invalidEmail(@required T failedValue),
+    Result shortPassword(@required T failedValue),
+    Result multiline(@required T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (multiline != null) {
+      return multiline(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result shortPassword(ShortPassword<T> value),
+    @required Result multiline(Multiline<T> value),
+  }) {
+    assert(invalidEmail != null);
+    assert(shortPassword != null);
+    assert(multiline != null);
+    return multiline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result invalidEmail(InvalidEmail<T> value),
+    Result shortPassword(ShortPassword<T> value),
+    Result multiline(Multiline<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (multiline != null) {
+      return multiline(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Multiline<T> implements ValueFailure<T> {
+  const factory Multiline({@required T failedValue}) = _$Multiline<T>;
+
+  @override
+  T get failedValue;
+
+  @override
+  Multiline<T> copyWith({T failedValue});
 }

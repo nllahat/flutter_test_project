@@ -5,7 +5,7 @@ import 'package:my_proj/domain/core/value_objects.dart';
 
 class User extends Equatable {
   final UniqueId id;
-  final String name;
+  final StringSingleLine name;
   final EmailAddress emailAddress;
 
   const User(

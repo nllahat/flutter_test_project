@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 
 import 'auth_failure.dart';
 import 'user.dart';
