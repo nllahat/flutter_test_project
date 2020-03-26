@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-abstract class TeamFailure extends Equatable {}
-
-class TeamFailureUnexpected extends TeamFailure {
+abstract class TeamFailure extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class TeamFailureUnexpected extends TeamFailure {}

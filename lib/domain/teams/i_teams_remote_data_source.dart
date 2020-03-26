@@ -1,5 +1,5 @@
-import 'package:my_proj/domain/teams/team.dart';
+import 'package:my_proj/infrastructure/teams/team_model.dart';
 
 abstract class ITeamsRemoteDataSource {
-  Future<List<Team>> getTeamsByLeagueId(int leagueId);
+  Future<List<TeamModel>> getTeamsByLeagueId(String leagueId);
 }

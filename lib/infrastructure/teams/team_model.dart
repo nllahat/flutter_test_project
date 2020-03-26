@@ -1,27 +1,40 @@
+import 'package:equatable/equatable.dart';
 import 'package:my_proj/domain/core/value_objects.dart';
 import 'package:my_proj/domain/teams/team.dart';
 import 'package:meta/meta.dart';
 
-class TeamModel extends Team {
+class TeamModel extends Equatable {
+  final String id;
+  final String name;
+  final String logoUrl;
+
   TeamModel({
-    @required UniqueId id,
-    @required String name,
-    @required String logoUrl,
-  }) : super(id: id, name: name, logoUrl: logoUrl);
+    @required this.id,
+    @required this.name,
+    @required this.logoUrl,
+  });
 
   factory TeamModel.fromJson(Map<String, dynamic> json) {
     return TeamModel(
-      id: UniqueId.fromExternalId(json['team_id']),
+      id: (json['team_id'] as num).toString(),
       name: json['name'],
       logoUrl: json['logo'],
     );
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'team_id': id,
-      'name': name,
-      'logo': logoUrl,
-    };
+  factory TeamModel.fromDomain(Team team) {
+    return TeamModel(
+        id: team.id.getOrCrash(), name: team.name, logoUrl: team.logoUrl);
   }
+
+  Team toDomain() {
+    return Team(
+      id: UniqueId.fromExternalId(id),
+      name: name,
+      logoUrl: logoUrl,
+    );
+  }
+
+  @override
+  List<Object> get props => [id, name, logoUrl];
 }
