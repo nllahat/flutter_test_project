@@ -11,7 +11,7 @@ class SplashPage extends StatelessWidget {
         if (state is AuthStateUnauthenticated) {
           Navigator.of(context).pushReplacementNamed(Router.signInPage);
         } else if (state is AuthStateAuthenticated) {
-          Navigator.of(context).pushReplacementNamed(Router.teamsPage); 
+          Navigator.of(context).pushReplacementNamed(Router.homePage); 
         }
       },
       child: _PageWidget(),

@@ -9,7 +9,9 @@ import '../../config_reader.dart';
 import '../../domain/teams/i_teams_remote_data_source.dart';
 import 'team_model.dart';
 
+@prod
 @lazySingleton
+@RegisterAs(ITeamsRemoteDataSource)
 class TeamsRemoteDataSource implements ITeamsRemoteDataSource {
   final http.Client client;
 
@@ -29,7 +31,8 @@ class TeamsRemoteDataSource implements ITeamsRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      Iterable l = json.decode(response.body);
+      final decodedJSON = json.decode(response.body);
+      Iterable l = decodedJSON['api']['teams'];
 
       final List<TeamModel> teams =
           l.map((teamJson) => TeamModel.fromJson(teamJson)).toList();

@@ -6,7 +6,7 @@ import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../injection.dart';
 import 'widgets/sign_in_form.dart';
 
-class SignInPage extends StatelessWidget implements RouteWrapper {
+class SignInPage extends StatelessWidget implements RouterWrapper {
   @override
   Widget get wrappedRoute => BlocProvider<SignInFormBloc>(
         create: (context) => getIt<SignInFormBloc>(),

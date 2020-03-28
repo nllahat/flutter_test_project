@@ -29,7 +29,7 @@ class SignInForm extends StatelessWidget {
                 ).show(context);
               },
               (_) {
-                Navigator.of(context).pushReplacementNamed(Router.teamsPage);
+                Navigator.of(context).pushReplacementNamed(Router.homePage);
                 context.bloc<AuthBloc>().add(const AuthEventCheckRequested());
               },
             );

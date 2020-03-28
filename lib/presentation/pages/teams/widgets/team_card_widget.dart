@@ -11,25 +11,24 @@ class TeamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () {
-          /* Router.navigator.pushNamed(
-            Router.noteFormPage,
-            arguments: NoteFormPageArguments(editedNote: team),
-          ); */
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Text(
-                team.name,
-                style: const TextStyle(fontSize: 18),
-              ),
-            ],
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(100.0)),
+        border: Border.all(
+          color: Colors.grey.shade200,
+          width: 2.0,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              colorFilter: ColorFilter.mode(Colors.grey, BlendMode.darken),
+              image: NetworkImage(team.logoUrl),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),

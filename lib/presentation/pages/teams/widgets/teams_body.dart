@@ -16,13 +16,21 @@ class TeamsBody extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is LoadSuccess) {
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              final team = state.teams[index];
+          return Container(
+            padding: const EdgeInsets.all(10.0),
+            child: GridView.builder(
+                shrinkWrap: true,
+                itemCount: state.teams.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 20.0,
+                  mainAxisSpacing: 20.0,
+                ),
+                itemBuilder: (context, index) {
+                  final team = state.teams[index];
 
-              return TeamCard(team: team);
-            },
-            itemCount: state.teams.length,
+                  return TeamCard(team: team);
+                }),
           );
         } else if (state is LoadFailure) {
           return CriticalFailureDisplay(failure: state.teamFailure);

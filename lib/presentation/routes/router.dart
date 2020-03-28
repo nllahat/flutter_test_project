@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_proj/presentation/pages/home/home_page.dart';
 import 'package:my_proj/presentation/pages/sign_in/sign_in_page.dart';
 import 'package:my_proj/presentation/pages/splash/splash_page.dart';
 import 'package:my_proj/presentation/pages/teams/teams_page.dart';
@@ -6,7 +7,8 @@ import 'package:my_proj/presentation/pages/teams/teams_page.dart';
 class Router {
   static const splashPage = '/';
   static const signInPage = '/sign-in-page';
-  static const teamsPage = '/teams';
+  // static const teamsPage = '/teams';
+  static const homePage = '/home';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -20,9 +22,14 @@ class Router {
           builder: (_) => SignInPage().wrappedRoute,
           settings: settings,
         );
-      case Router.teamsPage:
+      /* case Router.teamsPage:
         return MaterialPageRoute<dynamic>(
           builder: (_) => TeamsPage().wrappedRoute,
+          settings: settings,
+        ); */
+      case Router.homePage:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => HomePage(),
           settings: settings,
         );
       default:

@@ -8,6 +8,7 @@ import '../../domain/teams/team_failure.dart';
 import '../core/exceptions.dart';
 import 'teams_remote_data_source.dart';
 
+@prod
 @lazySingleton
 @RegisterAs(ITeamsRepository)
 class TeamsRepository implements ITeamsRepository {
