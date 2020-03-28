@@ -10,7 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_proj/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:my_proj/infrastructure/teams/teams_remote_data_source.dart';
-import 'package:http/src/client.dart';
+import 'package:http/http.dart' as http;
 import 'package:my_proj/infrastructure/auth/firebase_auth_facade.dart';
 import 'package:my_proj/domain/auth/i_auth_facade.dart';
 import 'package:my_proj/infrastructure/teams/teams_repository.dart';
@@ -29,7 +29,7 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<Firestore>(() => firebaseInjectableModule.firestore);
   g.registerLazySingleton<FirebaseUserMapper>(() => FirebaseUserMapper());
   g.registerLazySingleton<TeamsRemoteDataSource>(
-      () => TeamsRemoteDataSource(client: g<Client>()));
+      () => TeamsRemoteDataSource(client: g<http.Client>()));
   g.registerLazySingleton<ITeamsRepository>(
       () => TeamsRepository(teamsRemoteDataSource: g<TeamsRemoteDataSource>()));
   g.registerFactory<AuthBloc>(() => AuthBloc(g<IAuthFacade>()));

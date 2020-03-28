@@ -2,6 +2,8 @@ part of 'teams_bloc.dart';
 
 @immutable
 abstract class TeamsEvent extends Equatable {
+  const TeamsEvent();
+
   @override
   List<Object> get props => [];
 }
@@ -9,7 +11,7 @@ abstract class TeamsEvent extends Equatable {
 class GetAllStarted extends TeamsEvent {
   final String leagueId;
 
-  GetAllStarted(this.leagueId);
+  const GetAllStarted(this.leagueId);
 
   @override
   List<Object> get props => [leagueId];
@@ -18,7 +20,7 @@ class GetAllStarted extends TeamsEvent {
 class TeamsReceived extends TeamsEvent {
   final Either<TeamFailure, List<Team>> failureOrTeams;
 
-  TeamsReceived(this.failureOrTeams);
+  const TeamsReceived(this.failureOrTeams);
 
   @override
   List<Object> get props => [failureOrTeams];

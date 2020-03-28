@@ -7,11 +7,14 @@ abstract class AuthEvent extends Equatable {
 
 class AuthEventCheckRequested extends AuthEvent {
   const AuthEventCheckRequested();
+
   @override
   List<Object> get props => [];
 }
 
 class AuthEventSignedOut extends AuthEvent {
+  const AuthEventSignedOut();
+
   @override
   List<Object> get props => [];
 }

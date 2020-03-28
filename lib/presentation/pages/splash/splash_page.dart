@@ -8,15 +8,10 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        /* if (state is AuthStateInitial) {
-          return;
-        } else if (state is AuthStateAuthenticated) {
-          /* return Router.navigator
-              .pushReplacementNamed(Router.notesOverviewPage); */
-          return;
-        } else  */
         if (state is AuthStateUnauthenticated) {
           Navigator.of(context).pushReplacementNamed(Router.signInPage);
+        } else if (state is AuthStateAuthenticated) {
+          Navigator.of(context).pushReplacementNamed(Router.teamsPage); 
         }
       },
       child: _PageWidget(),
