@@ -4,9 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:my_proj/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:my_proj/domain/auth/i_auth_facade.dart';
-import 'package:my_proj/domain/auth/user.dart';
 import 'package:my_proj/domain/auth/value_objects.dart';
-import 'package:my_proj/domain/core/value_objects.dart';
 
 class MockIAuthFacade extends Mock implements IAuthFacade {}
 

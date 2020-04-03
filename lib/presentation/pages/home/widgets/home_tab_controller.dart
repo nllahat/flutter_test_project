@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_proj/presentation/pages/matches/matches_page.dart';
 import 'package:my_proj/presentation/pages/teams/teams_page.dart';
 
 class HomeTabController extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeTabController extends StatelessWidget {
         body: TabBarView(
           children: [
             TeamsPage().wrappedPage,
-            Icon(Icons.directions_transit),
+            MatchesPage().wrappedPage,
             Icon(Icons.directions_bike),
           ],
         ),
