@@ -134,9 +134,9 @@ class League {
 
 class Score {
   String halftime;
-  Null fulltime;
-  Null extratime;
-  Null penalty;
+  String fulltime;
+  String extratime;
+  String penalty;
 
   Score({this.halftime, this.fulltime, this.extratime, this.penalty});
 

@@ -18,14 +18,9 @@ class MatchesBody extends StatelessWidget {
         } else if (state is LoadSuccess) {
           return Container(
             padding: const EdgeInsets.all(10.0),
-            child: GridView.builder(
+            child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: state.matches.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 20.0,
-                  mainAxisSpacing: 20.0,
-                ),
                 itemBuilder: (context, index) {
                   final match = state.matches[index];
 
