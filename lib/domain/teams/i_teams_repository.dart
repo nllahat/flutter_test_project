@@ -3,5 +3,5 @@ import 'package:my_proj/domain/teams/team.dart';
 import 'package:my_proj/domain/teams/team_failure.dart';
 
 abstract class ITeamsRepository {
-  Future<Either<TeamFailure, List<Team>>> getAll(String leaugeId);
+  Future<Either<TeamFailure, List<Team>>> getAll(String leagueId);
 }

@@ -14,10 +14,6 @@ void main() {
   group('SignInFormBloc', () {
     SignInFormBloc signInFormBloc;
     MockIAuthFacade mockIAuthFacade;
-    User user = User(
-        id: UniqueId(),
-        emailAddress: EmailAddress('test@test.com'),
-        name: StringSingleLine('test'));
 
     setUp(() {
       mockIAuthFacade = MockIAuthFacade();

@@ -22,7 +22,7 @@ void main() {
 
   group('getAll', () {
     final leagueId = '2';
-    final teamModel = TeamModel(id: '123', name: 'team', logoUrl: 'url string');
+    final teamModel = TeamModel(teamId: 123, teamName: 'team', logo: 'url string');
     final teamModels = [teamModel].toList();
     final team = teamModel.toDomain();
     final teams = [team].toList();

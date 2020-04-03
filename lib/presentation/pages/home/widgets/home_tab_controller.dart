@@ -9,9 +9,15 @@ class HomeTabController extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
+          elevation: 0,
           bottom: TabBar(
+            /* unselectedLabelColor: Theme.of(context).accentColor,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicator: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius: BorderRadius.circular(10),
+            ), */
             tabs: [
               Tab(
                 text: 'Teams',
