@@ -11,33 +11,59 @@ class HomeTabController extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          bottom: TabBar(
-            /* unselectedLabelColor: Theme.of(context).accentColor,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicator: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(10),
-            ), */
-            tabs: [
-              Tab(
-                text: 'Teams',
-              ),
-              Tab(
-                text: 'Matches',
-              ),
-              Tab(
-                text: 'Table',
-              ),
-            ],
+          centerTitle: false,
+          titleSpacing: 10.0,
+          title: Text(
+            'Premier League',
+            textAlign: TextAlign.start,
+            style: Theme.of(context).textTheme.headline,
           ),
-          // title: Text('Home'),
+          elevation: 0,
         ),
-        body: TabBarView(
-          children: [
-            TeamsPage().wrappedPage,
-            MatchesPage().wrappedPage,
-            Icon(Icons.directions_bike),
+        body: Column(
+          children: <Widget>[
+            Container(
+              color: Theme.of(context).primaryColor,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  color: Theme.of(context).tabBarTheme.unselectedLabelColor,
+                  height: 30.0,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 50.0,
+                  ),
+                  child: TabBar(
+                    labelColor: Color.fromRGBO(22, 112, 238, 1),
+                    unselectedLabelColor: Colors.white,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicator: BoxDecoration(
+                      color: Theme.of(context).accentColor,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    tabs: [
+                      Tab(
+                        text: 'Teams',
+                      ),
+                      Tab(
+                        text: 'Matches',
+                      ),
+                      Tab(
+                        text: 'Table',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  TeamsPage().wrappedPage,
+                  MatchesPage().wrappedPage,
+                  Icon(Icons.directions_bike),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -16,29 +16,23 @@ class AppWidget extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Workout Tracker',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light().copyWith(
-          primaryColor: Colors.purple[800],
-          accentColor: Colors.blueAccent,
-          appBarTheme: ThemeData.light().appBarTheme.copyWith(
-                brightness: Brightness.dark,
-                color: Colors.purple[900],
-                iconTheme: ThemeData.dark().iconTheme,
-              ),
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Colors.blue[900],
-            foregroundColor: Colors.white,
-          ),
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
-        onGenerateRoute: Router.onGenerateRoute,
-        initialRoute: Router.splashPage
-      ),
+          title: 'Premier League Stats',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              brightness: Brightness.light,
+              primaryColor: Color.fromRGBO(0, 96, 255, 1),
+              accentColor: Color.fromRGBO(174, 229, 117, 1),
+              tabBarTheme: Theme.of(context).tabBarTheme.copyWith(
+                  unselectedLabelColor: Color.fromRGBO(100, 112, 255, 0.4),
+                  ),
+              textTheme: Theme.of(context).textTheme.copyWith(
+                  headline: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.8))),
+          onGenerateRoute: Router.onGenerateRoute,
+          initialRoute: Router.splashPage),
     );
   }
 }

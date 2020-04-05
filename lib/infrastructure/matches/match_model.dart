@@ -77,6 +77,7 @@ class MatchModel extends Equatable {
         id: UniqueId.fromExternalId(fixtureId.toString()),
         date: DateTime.parse(eventDate),
         status: status,
+        statusShort: statusShort,
         homeTeam: homeTeam.toDomain(),
         awayTeam: awayTeam.toDomain(),
         goalsHomeTeam: goalsHomeTeam,

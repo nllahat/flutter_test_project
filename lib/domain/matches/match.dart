@@ -7,6 +7,7 @@ class Match extends IEntity {
   final UniqueId id;
   final DateTime date;
   final String status;
+  final String statusShort;
   final Team homeTeam;
   final Team awayTeam;
   final int goalsHomeTeam;
@@ -17,6 +18,7 @@ class Match extends IEntity {
     @required this.id,
     @required this.date,
     @required this.status,
+    @required this.statusShort,
     @required this.homeTeam,
     @required this.awayTeam,
     @required this.goalsHomeTeam,
@@ -40,6 +42,7 @@ class Match extends IEntity {
       id: UniqueId(),
       date: DateTime.now(),
       status: '',
+      statusShort: '',
       homeTeam: Team.empty(),
       awayTeam: Team.empty(),
       goalsHomeTeam: 0,

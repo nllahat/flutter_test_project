@@ -15,7 +15,6 @@ class MatchCard extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          // color: Colors.pink,
           elevation: 10,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,6 +27,7 @@ class MatchCard extends StatelessWidget {
                 homeGoals: match.goalsHomeTeam,
                 awayGoals: match.goalsAwayTeam,
                 elapsedTime: match.elapsed,
+                status: match.status,
               ),
               MatchTeam(
                 team: match.awayTeam,
@@ -47,24 +47,24 @@ class MatchTeam extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.all(10),
-        width: 130,
-        height: 120,
-        child: Center(
-            child: Column(
+        width: 100,
+        // height: 120,
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image.network(
               team.logoUrl,
-              height: 60,
-              width: 70,
+              height: 50,
+              width: 50,
             ),
             Text(
               '${team.name}',
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14.0),
             ),
           ],
-        )));
+        ));
   }
 }
 
@@ -72,18 +72,20 @@ class MatchResult extends StatelessWidget {
   final int homeGoals;
   final int awayGoals;
   final int elapsedTime;
+  final String status;
 
   MatchResult({
     @required this.homeGoals,
     @required this.awayGoals,
     @required this.elapsedTime,
+    @required this.status,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.all(10),
-        // width: 130,
+        width: 120,
         // height: 120,
         child: Center(
             child: Column(
@@ -107,7 +109,13 @@ class MatchResult extends StatelessWidget {
                   style: TextStyle(fontSize: 18.0),
                 )
               ],
-            )
+            ),
+            Chip(
+              label: Text(
+                status,
+                style: TextStyle(fontSize: 12.0),
+              ),
+            ),
           ],
         )));
   }

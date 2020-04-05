@@ -16,6 +16,8 @@ class TeamsPage extends StatelessWidget implements PageWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return TeamsBody();
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: TeamsBody());
   }
 }
