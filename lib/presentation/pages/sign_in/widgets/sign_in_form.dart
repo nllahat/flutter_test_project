@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_proj/application/auth/auth_bloc.dart';
-import 'package:my_proj/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:my_proj/presentation/routes/router.dart';
+
+import '../../../../application/auth/auth_bloc.dart';
+import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
+import '../../../routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key key}) : super(key: key);
@@ -22,6 +24,7 @@ class SignInForm extends StatelessWidget {
                     // Use localized strings here in your apps
                     cancelledByUser: (_) => 'Cancelled',
                     serverError: (_) => 'Server error',
+                    providerException: (_) => 'Provider error',
                     emailAlreadyInUse: (_) => 'Email already in use',
                     invalidEmailAndPasswordCombination: (_) =>
                         'Invalid email and password combination',
@@ -29,8 +32,8 @@ class SignInForm extends StatelessWidget {
                 ).show(context);
               },
               (_) {
-                Navigator.of(context).pushReplacementNamed(Router.homePage);
-                context.bloc<AuthBloc>().add(const AuthEventCheckRequested());
+                ExtendedNavigator.of(context).replace(Routes.homePage);
+                //context.bloc<AuthBloc>().add(AuthEventCheckRequested());
               },
             );
           },

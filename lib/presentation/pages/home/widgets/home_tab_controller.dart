@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_proj/application/auth/auth_bloc.dart';
 import 'package:my_proj/presentation/pages/matches/matches_page.dart';
 import 'package:my_proj/presentation/pages/teams/teams_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTabController extends StatelessWidget {
   const HomeTabController({Key key}) : super(key: key);
@@ -19,6 +21,12 @@ class HomeTabController extends StatelessWidget {
             style: Theme.of(context).textTheme.headline,
           ),
           elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () {
+              context.bloc<AuthBloc>().add(AuthEventSignedOut());
+            },
+          ),
         ),
         body: Column(
           children: <Widget>[

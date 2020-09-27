@@ -11,6 +11,12 @@ class User extends Equatable {
   const User(
       {@required this.id, @required this.name, @required this.emailAddress});
 
+  /// Empty user which represents an unauthenticated user.
+  factory User.empty() => User(
+      id: UniqueId(),
+      name: StringSingleLine(''),
+      emailAddress: EmailAddress(''));
+
   @override
   List<Object> get props => [id, name, emailAddress];
 }

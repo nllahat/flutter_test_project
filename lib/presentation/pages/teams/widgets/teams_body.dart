@@ -9,7 +9,7 @@ class TeamsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TeamsBloc, TeamsState>(
       builder: (context, state) {
-        if (state is Initial) {
+        if (state is TeamsStateInitial) {
           return Container();
         } else if (state is DataTransferInProgress) {
           return const Center(

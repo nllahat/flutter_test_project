@@ -10,8 +10,7 @@ import '../../domain/teams/i_teams_remote_data_source.dart';
 import 'team_model.dart';
 
 @prod
-@lazySingleton
-@RegisterAs(ITeamsRemoteDataSource)
+@LazySingleton(as: ITeamsRemoteDataSource)
 class TeamsRemoteDataSource implements ITeamsRemoteDataSource {
   final http.Client client;
 

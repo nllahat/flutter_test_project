@@ -9,7 +9,7 @@ class MatchesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MatchesBloc, MatchesState>(
       builder: (context, state) {
-        if (state is Initial) {
+        if (state is MatchesStateInitial) {
           return Container();
         } else if (state is DataTransferInProgress) {
           return const Center(

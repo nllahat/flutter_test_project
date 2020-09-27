@@ -25,11 +25,11 @@ void main() {
     });
 
     test('initial state is AuthStateInitial', () {
-      expect(authBloc.initialState, AuthStateInitial());
+      expect(authBloc.state, AuthStateInitial());
     });
 
     group('AuthEventSignedOut', () {
-      blocTest<AuthBloc, AuthEvent, AuthState>(
+      blocTest(
         'emits [AuthStateInitial, AuthStateUnauthenticated] when AuthEventSignedOut is added',
         build: () => authBloc,
         act: (bloc) async => bloc.add(AuthEventSignedOut()),
@@ -41,7 +41,7 @@ void main() {
     });
 
     group('AuthEventCheckRequested', () {
-      blocTest<AuthBloc, AuthEvent, AuthState>(
+      blocTest(
         'should emit AuthStateAuthenticated when there is a signedIn user',
         build: () {
           when(mockIAuthFacade.getSignedInUser()).thenAnswer((_) {

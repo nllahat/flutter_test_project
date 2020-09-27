@@ -19,12 +19,12 @@ void main() {
     });
 
     test('initial state is Initial', () {
-      expect(signInFormBloc.initialState, SignInFormState.initial());
+      expect(signInFormBloc.state, SignInFormState.initial());
     });
 
     group('SignInFormEventEmailChanged', () {
       final emailStr = 'test@test.com';
-      blocTest<SignInFormBloc, SignInFormEvent, SignInFormState>(
+      blocTest(
         'emits [SignInFormState.initial()] when SignInFormEventEmailChanged is added',
         build: () => signInFormBloc,
         act: (bloc) async =>
@@ -40,7 +40,7 @@ void main() {
 
     group('SignInFormEventPasswordChanged', () {
       final passwordStr = '123456';
-      blocTest<SignInFormBloc, SignInFormEvent, SignInFormState>(
+      blocTest(
         'emits [SignInFormState.initial(), copyWithInitial] when SignInFormEventPasswordChanged is added',
         build: () => signInFormBloc,
         act: (bloc) async =>

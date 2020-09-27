@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_proj/presentation/common/router_wrapper.dart';
 
 import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../injection.dart';
 import 'widgets/sign_in_form.dart';
 
-class SignInPage extends StatelessWidget implements RouterWrapper {
-  @override
-  Widget get wrappedRoute => BlocProvider<SignInFormBloc>(
-        create: (context) => getIt<SignInFormBloc>(),
-        child: this,
-      );
-
+class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign In'),
       ),
-      body: const SignInForm(),
+      body: BlocProvider(
+        create: (context) => getIt<SignInFormBloc>(),
+        child: SignInForm(),
+      ),
     );
   }
 }

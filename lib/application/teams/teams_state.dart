@@ -2,11 +2,15 @@ part of 'teams_bloc.dart';
 
 @immutable
 abstract class TeamsState extends Equatable {
+  const TeamsState();
+
   @override
   List<Object> get props => [];
 }
 
-class Initial extends TeamsState {}
+class TeamsStateInitial extends TeamsState {
+  const TeamsStateInitial();
+}
 
 class DataTransferInProgress extends TeamsState {}
 

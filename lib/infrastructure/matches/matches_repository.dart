@@ -9,8 +9,7 @@ import '../core/exceptions.dart';
 import 'matches_remote_data_source.dart';
 
 @prod
-@lazySingleton
-@RegisterAs(IMatchesRepository)
+@LazySingleton(as: IMatchesRepository)
 class MatchesRepository implements IMatchesRepository {
   final MatchesRemoteDataSource matchesRemoteDataSource;
 

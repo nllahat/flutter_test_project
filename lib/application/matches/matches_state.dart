@@ -2,11 +2,15 @@ part of 'matches_bloc.dart';
 
 @immutable
 abstract class MatchesState extends Equatable {
+  const MatchesState();
+  
   @override
   List<Object> get props => [];
 }
 
-class Initial extends MatchesState {}
+class MatchesStateInitial extends MatchesState {
+  const MatchesStateInitial();
+}
 
 class DataTransferInProgress extends MatchesState {}
 

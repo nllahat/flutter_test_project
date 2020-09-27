@@ -16,10 +16,7 @@ part 'teams_state.dart';
 class TeamsBloc extends Bloc<TeamsEvent, TeamsState> {
   final ITeamsRepository _teamsRepository;
 
-  TeamsBloc(this._teamsRepository);
-
-  @override
-  TeamsState get initialState => Initial();
+  TeamsBloc(this._teamsRepository) : super(const TeamsStateInitial());
 
   @override
   Stream<TeamsState> mapEventToState(

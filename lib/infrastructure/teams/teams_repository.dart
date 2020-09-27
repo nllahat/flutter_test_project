@@ -9,8 +9,7 @@ import '../core/exceptions.dart';
 import 'teams_remote_data_source.dart';
 
 @prod
-@lazySingleton
-@RegisterAs(ITeamsRepository)
+@LazySingleton(as: ITeamsRepository)
 class TeamsRepository implements ITeamsRepository {
   final TeamsRemoteDataSource teamsRemoteDataSource;
 

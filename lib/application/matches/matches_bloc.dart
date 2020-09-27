@@ -16,10 +16,7 @@ part 'matches_state.dart';
 class MatchesBloc extends Bloc<MatchesEvent, MatchesState> {
   final IMatchesRepository _matchesRepository;
 
-  MatchesBloc(this._matchesRepository);
-
-  @override
-  MatchesState get initialState => Initial();
+  MatchesBloc(this._matchesRepository): super(const MatchesStateInitial());
 
   @override
   Stream<MatchesState> mapEventToState(

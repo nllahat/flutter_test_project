@@ -10,8 +10,7 @@ import '../../domain/matches/i_matches_remote_data_source.dart';
 import 'match_model.dart';
 
 @prod
-@lazySingleton
-@RegisterAs(IMatchesRemoteDataSource)
+@LazySingleton(as: IMatchesRemoteDataSource)
 class MatchesRemoteDataSource implements IMatchesRemoteDataSource {
   final http.Client client;
 

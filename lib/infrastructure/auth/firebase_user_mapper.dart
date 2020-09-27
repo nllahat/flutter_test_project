@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:injectable/injectable.dart';
 import 'package:my_proj/domain/auth/user.dart';
 import 'package:my_proj/domain/auth/value_objects.dart';
@@ -6,7 +6,7 @@ import 'package:my_proj/domain/core/value_objects.dart';
 
 @lazySingleton
 class FirebaseUserMapper {
-  User toDomain(FirebaseUser _) {
+  User toDomain(auth.User _) {
     return _ == null
         ? null
         : User(

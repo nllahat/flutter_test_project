@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'failures.dart';
 
@@ -7,57 +7,26 @@ part of 'failures.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$ValueFailure<T> {
-  T get failedValue;
-
-  ValueFailure<T> copyWith({T failedValue});
-
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
-    @required Result multiline(@required T failedValue),
-  });
-
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
-    Result multiline(@required T failedValue),
-    @required Result orElse(),
-  });
-
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result invalidEmail(InvalidEmail<T> value),
-    @required Result shortPassword(ShortPassword<T> value),
-    @required Result multiline(Multiline<T> value),
-  });
-
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result invalidEmail(InvalidEmail<T> value),
-    Result shortPassword(ShortPassword<T> value),
-    Result multiline(Multiline<T> value),
-    @required Result orElse(),
-  });
-}
+T _$identity<T>(T value) => value;
 
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
+// ignore: unused_element
   InvalidEmail<T> invalidEmail<T>({@required T failedValue}) {
     return InvalidEmail<T>(
       failedValue: failedValue,
     );
   }
 
+// ignore: unused_element
   ShortPassword<T> shortPassword<T>({@required T failedValue}) {
     return ShortPassword<T>(
       failedValue: failedValue,
     );
   }
 
+// ignore: unused_element
   Multiline<T> multiline<T>({@required T failedValue}) {
     return Multiline<T>(
       failedValue: failedValue,
@@ -65,7 +34,97 @@ class _$ValueFailureTearOff {
   }
 }
 
+// ignore: unused_element
 const $ValueFailure = _$ValueFailureTearOff();
+
+mixin _$ValueFailure<T> {
+  T get failedValue;
+
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result invalidEmail(T failedValue),
+    @required Result shortPassword(T failedValue),
+    @required Result multiline(T failedValue),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result invalidEmail(T failedValue),
+    Result shortPassword(T failedValue),
+    Result multiline(T failedValue),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result invalidEmail(InvalidEmail<T> value),
+    @required Result shortPassword(ShortPassword<T> value),
+    @required Result multiline(Multiline<T> value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result invalidEmail(InvalidEmail<T> value),
+    Result shortPassword(ShortPassword<T> value),
+    Result multiline(Multiline<T> value),
+    @required Result orElse(),
+  });
+
+  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
+}
+
+abstract class $ValueFailureCopyWith<T, $Res> {
+  factory $ValueFailureCopyWith(
+          ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
+      _$ValueFailureCopyWithImpl<T, $Res>;
+  $Res call({T failedValue});
+}
+
+class _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  _$ValueFailureCopyWithImpl(this._value, this._then);
+
+  final ValueFailure<T> _value;
+  // ignore: unused_field
+  final $Res Function(ValueFailure<T>) _then;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(_value.copyWith(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+abstract class $InvalidEmailCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $InvalidEmailCopyWith(
+          InvalidEmail<T> value, $Res Function(InvalidEmail<T>) then) =
+      _$InvalidEmailCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$InvalidEmailCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $InvalidEmailCopyWith<T, $Res> {
+  _$InvalidEmailCopyWithImpl(
+      InvalidEmail<T> _value, $Res Function(InvalidEmail<T>) _then)
+      : super(_value, (v) => _then(v as InvalidEmail<T>));
+
+  @override
+  InvalidEmail<T> get _value => super._value as InvalidEmail<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(InvalidEmail<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
 
 class _$InvalidEmail<T>
     with DiagnosticableTreeMixin
@@ -103,20 +162,15 @@ class _$InvalidEmail<T>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
   @override
-  _$InvalidEmail<T> copyWith({
-    Object failedValue = freezed,
-  }) {
-    return _$InvalidEmail<T>(
-      failedValue: failedValue == freezed ? this.failedValue : failedValue as T,
-    );
-  }
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith =>
+      _$InvalidEmailCopyWithImpl<T, InvalidEmail<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
-    @required Result multiline(@required T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result shortPassword(T failedValue),
+    @required Result multiline(T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
@@ -127,9 +181,9 @@ class _$InvalidEmail<T>
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
-    Result multiline(@required T failedValue),
+    Result invalidEmail(T failedValue),
+    Result shortPassword(T failedValue),
+    Result multiline(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -173,9 +227,38 @@ abstract class InvalidEmail<T> implements ValueFailure<T> {
 
   @override
   T get failedValue;
+  @override
+  $InvalidEmailCopyWith<T, InvalidEmail<T>> get copyWith;
+}
+
+abstract class $ShortPasswordCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $ShortPasswordCopyWith(
+          ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
+      _$ShortPasswordCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$ShortPasswordCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $ShortPasswordCopyWith<T, $Res> {
+  _$ShortPasswordCopyWithImpl(
+      ShortPassword<T> _value, $Res Function(ShortPassword<T>) _then)
+      : super(_value, (v) => _then(v as ShortPassword<T>));
 
   @override
-  InvalidEmail<T> copyWith({T failedValue});
+  ShortPassword<T> get _value => super._value as ShortPassword<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(ShortPassword<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
 }
 
 class _$ShortPassword<T>
@@ -214,20 +297,15 @@ class _$ShortPassword<T>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
   @override
-  _$ShortPassword<T> copyWith({
-    Object failedValue = freezed,
-  }) {
-    return _$ShortPassword<T>(
-      failedValue: failedValue == freezed ? this.failedValue : failedValue as T,
-    );
-  }
+  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
+      _$ShortPasswordCopyWithImpl<T, ShortPassword<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
-    @required Result multiline(@required T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result shortPassword(T failedValue),
+    @required Result multiline(T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
@@ -238,9 +316,9 @@ class _$ShortPassword<T>
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
-    Result multiline(@required T failedValue),
+    Result invalidEmail(T failedValue),
+    Result shortPassword(T failedValue),
+    Result multiline(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -284,9 +362,38 @@ abstract class ShortPassword<T> implements ValueFailure<T> {
 
   @override
   T get failedValue;
+  @override
+  $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith;
+}
+
+abstract class $MultilineCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $MultilineCopyWith(
+          Multiline<T> value, $Res Function(Multiline<T>) then) =
+      _$MultilineCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$MultilineCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $MultilineCopyWith<T, $Res> {
+  _$MultilineCopyWithImpl(
+      Multiline<T> _value, $Res Function(Multiline<T>) _then)
+      : super(_value, (v) => _then(v as Multiline<T>));
 
   @override
-  ShortPassword<T> copyWith({T failedValue});
+  Multiline<T> get _value => super._value as Multiline<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(Multiline<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
 }
 
 class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
@@ -322,20 +429,15 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
   @override
-  _$Multiline<T> copyWith({
-    Object failedValue = freezed,
-  }) {
-    return _$Multiline<T>(
-      failedValue: failedValue == freezed ? this.failedValue : failedValue as T,
-    );
-  }
+  $MultilineCopyWith<T, Multiline<T>> get copyWith =>
+      _$MultilineCopyWithImpl<T, Multiline<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result invalidEmail(@required T failedValue),
-    @required Result shortPassword(@required T failedValue),
-    @required Result multiline(@required T failedValue),
+    @required Result invalidEmail(T failedValue),
+    @required Result shortPassword(T failedValue),
+    @required Result multiline(T failedValue),
   }) {
     assert(invalidEmail != null);
     assert(shortPassword != null);
@@ -346,9 +448,9 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result invalidEmail(@required T failedValue),
-    Result shortPassword(@required T failedValue),
-    Result multiline(@required T failedValue),
+    Result invalidEmail(T failedValue),
+    Result shortPassword(T failedValue),
+    Result multiline(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -392,7 +494,6 @@ abstract class Multiline<T> implements ValueFailure<T> {
 
   @override
   T get failedValue;
-
   @override
-  Multiline<T> copyWith({T failedValue});
+  $MultilineCopyWith<T, Multiline<T>> get copyWith;
 }
