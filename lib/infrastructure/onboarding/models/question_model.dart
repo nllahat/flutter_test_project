@@ -36,7 +36,7 @@ class QuestionModel extends Equatable {
             : EnumQuestionType.FREE_TEXT;
 
     return Question(
-      id: UniqueId.fromExternalId(id),
+      id: UniqueId.fromUniqueString(id),
       text: text,
       type: calculatedType,
       optionGroups: optionGroups.map((e) => e.toDomain()),

@@ -3,7 +3,6 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../application/auth/auth_bloc.dart';
 import '../../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../../routes/router.gr.dart';
 
@@ -25,6 +24,7 @@ class SignInForm extends StatelessWidget {
                     cancelledByUser: (_) => 'Cancelled',
                     serverError: (_) => 'Server error',
                     providerException: (_) => 'Provider error',
+                    userException: (_) => 'User creation error',
                     emailAlreadyInUse: (_) => 'Email already in use',
                     invalidEmailAndPasswordCombination: (_) =>
                         'Invalid email and password combination',

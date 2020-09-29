@@ -11,9 +11,14 @@ class SplashPage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthStateAuthenticated) {
-          ExtendedNavigator.of(context).replace(Routes.homePage);
+          if (state.user.finishedOnboarding != null &&
+              state.user.finishedOnboarding) {
+            ExtendedNavigator.of(context).replace(Routes.homePage);
+          } else {
+            ExtendedNavigator.of(context).replace(Routes.onboardingPage);
+          }
         } else if (state is AuthStateUnauthenticated) {
-          ExtendedNavigator.of(context).replace(Routes.signInPage);
+          ExtendedNavigator.of(context).replace(Routes.onboardingPage);
         }
       },
       child: _PageWidget(),

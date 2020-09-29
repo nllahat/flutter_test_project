@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
+import '../user/entities/user.dart';
 import 'auth_failure.dart';
-import 'user.dart';
 import 'value_objects.dart';
 
 abstract class IAuthFacade {
-  Stream<Option<User>> get user;
+  Option<User> get currentUser;
+  Stream<Option<User>> get userStream;
   Future<Option<User>> getSignedInUser();
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     @required EmailAddress emailAddress,

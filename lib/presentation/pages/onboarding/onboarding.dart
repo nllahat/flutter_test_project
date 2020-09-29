@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/onboarding/onboarding_steps/onboarding_cubit.dart';
+import '../../../application/onboarding/onboarding_steps/onboarding_steps_cubit.dart';
 import '../../../injection.dart';
-import '../../common/page_wrapper.dart';
 import 'widgets/onboarding_body.dart';
 
-class OnboardingPage extends StatelessWidget implements PageWrapper {
-  @override
-  Widget get wrappedPage => BlocProvider<OnboardingStepsCubit>(
-        create: (context) => getIt<OnboardingStepsCubit>(),
-        child: this,
-      );
-
+class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return OnboardingBody();
+    return BlocProvider<OnboardingStepsCubit>(
+      create: (context) {
+        var cubit = getIt<OnboardingStepsCubit>();
+        cubit.getSteps();
+        return cubit;
+      },
+      child: OnboardingBody(),
+    );
   }
 }

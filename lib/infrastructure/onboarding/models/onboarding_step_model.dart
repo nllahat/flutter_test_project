@@ -18,7 +18,7 @@ class OnboardingStepModel extends Equatable {
 
   OnboardingStep toDomain() {
     return OnboardingStep(
-      id: UniqueId.fromExternalId(id),
+      id: UniqueId.fromUniqueString(id),
       name: name,
       questions: questions,
     );

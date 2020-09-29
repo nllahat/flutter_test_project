@@ -6,8 +6,9 @@ import '../../injection.dart';
 
 extension FirestoreX on FirebaseFirestore {
   Future<DocumentReference> userDocument() async {
-    final userOption = await getIt<IAuthFacade>().getSignedInUser();
+    final userOption = getIt<IAuthFacade>().currentUser;
     final user = userOption.getOrElse(() => throw NotAuthenticatedError());
+
     return FirebaseFirestore.instance
         .collection('users')
         .doc(user.id.getOrCrash());
@@ -16,5 +17,4 @@ extension FirestoreX on FirebaseFirestore {
 
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get noteCollection => collection('notes');
-  CollectionReference get userCollection => collection('users');
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_proj/application/auth/auth_bloc.dart';
-import 'package:my_proj/presentation/pages/matches/matches_page.dart';
-import 'package:my_proj/presentation/pages/teams/teams_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTabController extends StatelessWidget {
@@ -10,7 +8,7 @@ class HomeTabController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 1,
       child: Scaffold(
         appBar: AppBar(
           centerTitle: false,
@@ -50,12 +48,6 @@ class HomeTabController extends StatelessWidget {
                     ),
                     tabs: [
                       Tab(
-                        text: 'Teams',
-                      ),
-                      Tab(
-                        text: 'Matches',
-                      ),
-                      Tab(
                         text: 'Table',
                       ),
                     ],
@@ -66,8 +58,6 @@ class HomeTabController extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  TeamsPage().wrappedPage,
-                  MatchesPage().wrappedPage,
                   Icon(Icons.directions_bike),
                 ],
               ),

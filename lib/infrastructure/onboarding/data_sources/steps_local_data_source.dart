@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/onboarding/data_sources/i_onboarding_steps_local_data_source.dart';
 import '../models/onboarding_step_model.dart';
+import 'i_onboarding_steps_local_data_source.dart';
 
+@injectable
 @LazySingleton(as: IOnboardingStepsLocalDataSource)
 class StepsLocalDataSource implements IOnboardingStepsLocalDataSource {
   StepsLocalDataSource();

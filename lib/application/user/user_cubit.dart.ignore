@@ -1,0 +1,25 @@
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'user_state.dart';
+
+class UserCubit extends Cubit<UserState> {
+  final OnboardingStepsRepository _onboardingStepsRepository;
+
+  UserCubit(this._onboardingStepsRepository) : super(OnboardingStepsInitial());
+
+  Future<void> getSteps() async {
+    try {
+      emit(OnboardingStepsLoading());
+
+      final steps = await _onboardingStepsRepository.getSteps();
+      steps.fold((f) => emit(OnboardingStepsError(onboardingStepsFailure: f)),
+          (steps) => emit(OnboardingStepsLoaded(steps)));
+    } catch (e) {
+      emit(OnboardingStepsError(
+          onboardingStepsFailure:
+              new OnboardingStepsFailureUnexpected('Loading setps error')));
+    }
+  }
+}

@@ -7,6 +7,7 @@ import '../../../domain/onboarding/entities/onboarding_step_failure.dart';
 import '../../../domain/onboarding/repos/i_onboarding_steps_repository.dart';
 import '../data_sources/steps_local_data_source.dart';
 
+@injectable
 @LazySingleton(as: IOnboardingStepsRepository)
 class OnboardingStepsRepository implements IOnboardingStepsRepository {
   final StepsLocalDataSource stepsLocalDataSource;

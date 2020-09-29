@@ -28,7 +28,7 @@ class OptionGroupModel extends Equatable {
 
   OptionGroup toDomain() {
     return OptionGroup(
-      id: UniqueId.fromExternalId(id),
+      id: UniqueId.fromUniqueString(id),
       options: options.map((e) => e.toDomain()),
       text: text,
       image: image,

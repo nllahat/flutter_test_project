@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import '../../domain/auth/i_auth_facade.dart';
-import '../../domain/auth/user.dart';
+import '../../domain/user/entities/user.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -18,7 +18,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   StreamSubscription<Option<User>> _userSubscription;
 
   AuthBloc(this._authFacade) : super(const AuthStateInitial()) {
-    _userSubscription = _authFacade.user.listen(
+    _userSubscription = _authFacade.userStream.listen(
       (user) => add(AuthEventUserChanged(user)),
     );
   }

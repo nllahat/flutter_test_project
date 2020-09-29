@@ -23,6 +23,11 @@ class _$AuthFailureTearOff {
   }
 
 // ignore: unused_element
+  UserException userException() {
+    return const UserException();
+  }
+
+// ignore: unused_element
   CancelledByUser cancelledByUser() {
     return const CancelledByUser();
   }
@@ -46,6 +51,7 @@ mixin _$AuthFailure {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result providerException(),
+    @required Result userException(),
     @required Result cancelledByUser(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
@@ -54,6 +60,7 @@ mixin _$AuthFailure {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result providerException(),
+    Result userException(),
     Result cancelledByUser(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
@@ -63,6 +70,7 @@ mixin _$AuthFailure {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
     @required Result cancelledByUser(CancelledByUser value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
     @required
@@ -73,6 +81,7 @@ mixin _$AuthFailure {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result providerException(ProviderException value),
+    Result userException(UserException value),
     Result cancelledByUser(CancelledByUser value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
@@ -132,12 +141,14 @@ class _$ServerError implements ServerError {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result providerException(),
+    @required Result userException(),
     @required Result cancelledByUser(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -149,6 +160,7 @@ class _$ServerError implements ServerError {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result providerException(),
+    Result userException(),
     Result cancelledByUser(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
@@ -166,6 +178,7 @@ class _$ServerError implements ServerError {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
     @required Result cancelledByUser(CancelledByUser value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
     @required
@@ -174,6 +187,7 @@ class _$ServerError implements ServerError {
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -185,6 +199,7 @@ class _$ServerError implements ServerError {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result providerException(ProviderException value),
+    Result userException(UserException value),
     Result cancelledByUser(CancelledByUser value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
@@ -241,12 +256,14 @@ class _$ProviderException implements ProviderException {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result providerException(),
+    @required Result userException(),
     @required Result cancelledByUser(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -258,6 +275,7 @@ class _$ProviderException implements ProviderException {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result providerException(),
+    Result userException(),
     Result cancelledByUser(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
@@ -275,6 +293,7 @@ class _$ProviderException implements ProviderException {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
     @required Result cancelledByUser(CancelledByUser value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
     @required
@@ -283,6 +302,7 @@ class _$ProviderException implements ProviderException {
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -294,6 +314,7 @@ class _$ProviderException implements ProviderException {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result providerException(ProviderException value),
+    Result userException(UserException value),
     Result cancelledByUser(CancelledByUser value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
@@ -310,6 +331,120 @@ class _$ProviderException implements ProviderException {
 
 abstract class ProviderException implements AuthFailure {
   const factory ProviderException() = _$ProviderException;
+}
+
+abstract class $UserExceptionCopyWith<$Res> {
+  factory $UserExceptionCopyWith(
+          UserException value, $Res Function(UserException) then) =
+      _$UserExceptionCopyWithImpl<$Res>;
+}
+
+class _$UserExceptionCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UserExceptionCopyWith<$Res> {
+  _$UserExceptionCopyWithImpl(
+      UserException _value, $Res Function(UserException) _then)
+      : super(_value, (v) => _then(v as UserException));
+
+  @override
+  UserException get _value => super._value as UserException;
+}
+
+class _$UserException implements UserException {
+  const _$UserException();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userException()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UserException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result serverError(),
+    @required Result providerException(),
+    @required Result userException(),
+    @required Result cancelledByUser(),
+    @required Result emailAlreadyInUse(),
+    @required Result invalidEmailAndPasswordCombination(),
+  }) {
+    assert(serverError != null);
+    assert(providerException != null);
+    assert(userException != null);
+    assert(cancelledByUser != null);
+    assert(emailAlreadyInUse != null);
+    assert(invalidEmailAndPasswordCombination != null);
+    return userException();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result serverError(),
+    Result providerException(),
+    Result userException(),
+    Result cancelledByUser(),
+    Result emailAlreadyInUse(),
+    Result invalidEmailAndPasswordCombination(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (userException != null) {
+      return userException();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result serverError(ServerError value),
+    @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
+    @required Result cancelledByUser(CancelledByUser value),
+    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required
+        Result invalidEmailAndPasswordCombination(
+            InvalidEmailAndPasswordCombination value),
+  }) {
+    assert(serverError != null);
+    assert(providerException != null);
+    assert(userException != null);
+    assert(cancelledByUser != null);
+    assert(emailAlreadyInUse != null);
+    assert(invalidEmailAndPasswordCombination != null);
+    return userException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result serverError(ServerError value),
+    Result providerException(ProviderException value),
+    Result userException(UserException value),
+    Result cancelledByUser(CancelledByUser value),
+    Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result invalidEmailAndPasswordCombination(
+        InvalidEmailAndPasswordCombination value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (userException != null) {
+      return userException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserException implements AuthFailure {
+  const factory UserException() = _$UserException;
 }
 
 abstract class $CancelledByUserCopyWith<$Res> {
@@ -350,12 +485,14 @@ class _$CancelledByUser implements CancelledByUser {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result providerException(),
+    @required Result userException(),
     @required Result cancelledByUser(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -367,6 +504,7 @@ class _$CancelledByUser implements CancelledByUser {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result providerException(),
+    Result userException(),
     Result cancelledByUser(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
@@ -384,6 +522,7 @@ class _$CancelledByUser implements CancelledByUser {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
     @required Result cancelledByUser(CancelledByUser value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
     @required
@@ -392,6 +531,7 @@ class _$CancelledByUser implements CancelledByUser {
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -403,6 +543,7 @@ class _$CancelledByUser implements CancelledByUser {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result providerException(ProviderException value),
+    Result userException(UserException value),
     Result cancelledByUser(CancelledByUser value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
@@ -459,12 +600,14 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result providerException(),
+    @required Result userException(),
     @required Result cancelledByUser(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -476,6 +619,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result providerException(),
+    Result userException(),
     Result cancelledByUser(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
@@ -493,6 +637,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
     @required Result cancelledByUser(CancelledByUser value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
     @required
@@ -501,6 +646,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -512,6 +658,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result providerException(ProviderException value),
+    Result userException(UserException value),
     Result cancelledByUser(CancelledByUser value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
@@ -573,12 +720,14 @@ class _$InvalidEmailAndPasswordCombination
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result providerException(),
+    @required Result userException(),
     @required Result cancelledByUser(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -590,6 +739,7 @@ class _$InvalidEmailAndPasswordCombination
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result providerException(),
+    Result userException(),
     Result cancelledByUser(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
@@ -607,6 +757,7 @@ class _$InvalidEmailAndPasswordCombination
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result providerException(ProviderException value),
+    @required Result userException(UserException value),
     @required Result cancelledByUser(CancelledByUser value),
     @required Result emailAlreadyInUse(EmailAlreadyInUse value),
     @required
@@ -615,6 +766,7 @@ class _$InvalidEmailAndPasswordCombination
   }) {
     assert(serverError != null);
     assert(providerException != null);
+    assert(userException != null);
     assert(cancelledByUser != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
@@ -626,6 +778,7 @@ class _$InvalidEmailAndPasswordCombination
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result providerException(ProviderException value),
+    Result userException(UserException value),
     Result cancelledByUser(CancelledByUser value),
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(

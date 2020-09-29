@@ -28,7 +28,7 @@ class QuestionOptionModel extends Equatable {
             : EnumQuestionOptionType.BUTTON;
 
     return QuestionOption(
-      id: UniqueId.fromExternalId(id),
+      id: UniqueId.fromUniqueString(id),
       type: calculatedType,
       text: text,
       image: image,

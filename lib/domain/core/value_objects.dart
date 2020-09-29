@@ -51,24 +51,22 @@ class UniqueId extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  // We cannot let a simple String be passed in. This would allow for possible non-unique IDs.
   factory UniqueId() {
     return UniqueId._(
       right(Uuid().v1()),
     );
   }
 
-  factory UniqueId.fromFirebaseId(String firebaseId) {
-    assert(firebaseId != null);
+  factory UniqueId.empty() {
     return UniqueId._(
-      right(firebaseId),
+      right(''),
     );
   }
 
-  factory UniqueId.fromExternalId(String externalId) {
-    assert(externalId != null);
+  factory UniqueId.fromUniqueString(String uniqueId) {
+    assert(uniqueId != null);
     return UniqueId._(
-      right(externalId),
+      right(uniqueId),
     );
   }
 
