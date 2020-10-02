@@ -14,12 +14,7 @@ import 'application/auth/auth_bloc.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
-import 'domain/user/repos/i_user_repository.dart';
-import 'application/onboarding/onboarding_cubit.dart';
-import 'application/onboarding/onboarding_steps/onboarding_steps_cubit.dart';
-import 'infrastructure/onboarding/repos/onboarding_steps_repository.dart';
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'infrastructure/onboarding/data_sources/steps_local_data_source.dart';
 import 'infrastructure/user/user_repository.dart';
 
 /// Environment names
@@ -38,7 +33,6 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseAuth>(() => firebaseInjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
-  gh.factory<StepsLocalDataSource>(() => StepsLocalDataSource());
   gh.factory<UserRepository>(() => UserRepository(), registerFor: {_prod});
   gh.lazySingleton<IAuthFacade>(
       () => FirebaseAuthFacade(
@@ -47,17 +41,8 @@ GetIt $initGetIt(
             get<UserRepository>(),
           ),
       registerFor: {_prod});
-  gh.factory<OnboardingCubit>(() => OnboardingCubit(
-        get<bool>(),
-        get<IAuthFacade>(),
-        get<IUserRepository>(),
-      ));
-  gh.factory<OnboardingStepsRepository>(() => OnboardingStepsRepository(
-      stepsLocalDataSource: get<StepsLocalDataSource>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
-  gh.factory<OnboardingStepsCubit>(
-      () => OnboardingStepsCubit(get<OnboardingStepsRepository>()));
   return get;
 }
 

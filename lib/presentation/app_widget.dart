@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../application/auth/auth_bloc.dart';
 import '../injection.dart';
-import 'routes/router.gr.dart';
+import 'routes/router.gr.dart' as Route;
 
 class AppWidget extends StatelessWidget {
   @override
@@ -16,8 +16,8 @@ class AppWidget extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-            title: 'Blaaaaa',
+            title: 'onfield',
             debugShowCheckedModeBanner: false,
-            builder: ExtendedNavigator(router: Router())));
+            builder: ExtendedNavigator(router: Route.Router())));
   }
 }
