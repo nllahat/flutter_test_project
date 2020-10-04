@@ -9,9 +9,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../domain/onboarding/onboard_page_model.dart';
 import '../pages/home/home_page.dart';
-import '../pages/onboarding/widgets/onboarding_page.dart';
+import '../pages/onboarding/onboarding.dart';
 import '../pages/sign_in/sign_in_page.dart';
 import '../pages/splash/splash_page.dart';
 
@@ -19,12 +18,12 @@ class Routes {
   static const String splashPage = '/';
   static const String signInPage = '/sign-in-page';
   static const String homePage = '/home-page';
-  static const String onboardingPage = '/onboarding-page';
+  static const String onboarding = '/Onboarding';
   static const all = <String>{
     splashPage,
     signInPage,
     homePage,
-    onboardingPage,
+    onboarding,
   };
 }
 
@@ -35,7 +34,7 @@ class Router extends RouterBase {
     RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.homePage, page: HomePage),
-    RouteDef(Routes.onboardingPage, page: OnboardingPage),
+    RouteDef(Routes.onboarding, page: Onboarding),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -58,14 +57,9 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    OnboardingPage: (data) {
-      final args = data.getArgs<OnboardingPageArguments>(nullOk: false);
+    Onboarding: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => OnboardingPage(
-          key: args.key,
-          pageModel: args.pageModel,
-          pageController: args.pageController,
-        ),
+        builder: (context) => Onboarding(),
         settings: data,
       );
     },
@@ -83,27 +77,5 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
 
-  Future<dynamic> pushOnboardingPage({
-    Key key,
-    @required OnboardPageModel pageModel,
-    @required PageController pageController,
-  }) =>
-      push<dynamic>(
-        Routes.onboardingPage,
-        arguments: OnboardingPageArguments(
-            key: key, pageModel: pageModel, pageController: pageController),
-      );
-}
-
-/// ************************************************************************
-/// Arguments holder classes
-/// *************************************************************************
-
-/// OnboardingPage arguments holder class
-class OnboardingPageArguments {
-  final Key key;
-  final OnboardPageModel pageModel;
-  final PageController pageController;
-  OnboardingPageArguments(
-      {this.key, @required this.pageModel, @required this.pageController});
+  Future<dynamic> pushOnboarding() => push<dynamic>(Routes.onboarding);
 }

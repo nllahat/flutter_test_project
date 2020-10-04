@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../size_config.dart';
 import '../../routes/router.gr.dart';
-import 'components/splash_body.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -17,10 +16,10 @@ class SplashPage extends StatelessWidget {
               state.user.finishedOnboarding) {
             ExtendedNavigator.of(context).replace(Routes.homePage);
           } else {
-            ExtendedNavigator.of(context).replace(Routes.onboardingPage);
+            ExtendedNavigator.of(context).replace(Routes.onboarding);
           }
         } else if (state is AuthStateUnauthenticated) {
-          ExtendedNavigator.of(context).replace(Routes.onboardingPage);
+          ExtendedNavigator.of(context).replace(Routes.onboarding);
         }
       },
       child: _PageWidget(),
@@ -31,10 +30,16 @@ class SplashPage extends StatelessWidget {
 class _PageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    /*
     // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
       body: SplashBody(),
+    );*/
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }

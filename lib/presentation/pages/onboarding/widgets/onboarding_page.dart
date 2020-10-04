@@ -3,8 +3,6 @@ import 'package:my_proj/application/onboarding/color_provider.dart';
 import 'package:my_proj/domain/onboarding/onboard_page_model.dart';
 import 'package:provider/provider.dart';
 
-import 'drawing_paint.dart';
-
 class OnboardingPage extends StatefulWidget {
   final PageController pageController;
   final OnboardPageModel pageModel;
@@ -63,7 +61,7 @@ class _OnboardingPageState extends State<OnboardingPage>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              AnimatedBuilder(
+              /* AnimatedBuilder(
                 animation: heroAnimation,
                 builder: (context, child) {
                   return Transform.translate(
@@ -74,15 +72,35 @@ class _OnboardingPageState extends State<OnboardingPage>
                     ),
                   );
                 },
-              ),
+              ), */
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Container(
-                  height: 250,
+                  height: 350,
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 30.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 70,
+                          decoration: BoxDecoration(
+                              color: Colors.lightBlue,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15))),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(widget.pageModel.questionText,
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20.0)),
+                            ),
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: Text(
@@ -123,37 +141,6 @@ class _OnboardingPageState extends State<OnboardingPage>
                 ),
               ),
             ],
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: AnimatedBuilder(
-            animation: borderAnimation,
-            builder: (context, child) {
-              return CustomPaint(
-                painter: DrawerPaint(
-                  curveColor: widget.pageModel.accentColor,
-                ),
-                child: Container(
-                  width: borderAnimation.value,
-                  height: double.infinity,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 24.0),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: widget.pageModel.primeColor,
-                          size: 32,
-                        ),
-                        onPressed: _nextButtonPressed,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            },
           ),
         ),
       ],

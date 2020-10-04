@@ -9,6 +9,7 @@ class OnboardPageModel {
   final String caption;
   final String subhead;
   final String description;
+  final String questionText;
 
   OnboardPageModel(
       this.primeColor,
@@ -18,5 +19,6 @@ class OnboardPageModel {
       this.imagePath,
       this.caption,
       this.subhead,
-      this.description);
+      this.description,
+      this.questionText);
 }
