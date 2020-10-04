@@ -102,17 +102,8 @@ class _OnboardingPageState extends State<OnboardingPage>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Text(
-                          widget.pageModel.caption,
-                          style: TextStyle(
-                              fontSize: 24,
-                              color:
-                                  widget.pageModel.accentColor.withOpacity(0.8),
-                              letterSpacing: 1,
-                              fontStyle: FontStyle.normal),
-                        ),
-                      ),
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: widget.pageModel.contentWidget),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: Text(

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:my_proj/domain/onboarding/onboard_page_model.dart';
+import 'package:my_proj/presentation/pages/onboarding/widgets/teams/team_list.dart';
 
 List<OnboardPageModel> onboardData = [
   OnboardPageModel(
@@ -12,7 +13,8 @@ List<OnboardPageModel> onboardData = [
       'EXPLORING',
       'FLUTTER',
       'On this channel we try and build fun stuff using Flutter and Dart. Subscribe for more content and let me know what you think in the comments!',
-      'Which of the following leagues are your favorite?'),
+      'Which of the following leagues are your favorite?',
+      contentWidget: TeamList()),
   OnboardPageModel(
     Color(0xFF005699),
     Color(0xFFFFE074),

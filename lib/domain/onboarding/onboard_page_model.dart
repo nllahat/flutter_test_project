@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class OnboardPageModel {
   final Color primeColor;
   final Color accentColor;
@@ -10,6 +12,7 @@ class OnboardPageModel {
   final String subhead;
   final String description;
   final String questionText;
+  final Widget contentWidget;
 
   OnboardPageModel(
       this.primeColor,
@@ -20,5 +23,7 @@ class OnboardPageModel {
       this.caption,
       this.subhead,
       this.description,
-      this.questionText);
+      this.questionText,
+      {Widget contentWidget})
+      : contentWidget = contentWidget ?? null;
 }

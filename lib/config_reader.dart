@@ -9,15 +9,15 @@ abstract class ConfigReader {
     _config = json.decode(configString) as Map<String, dynamic>;
   }
 
-  static String getRapidAPISecret() {
-    return _config['rapidAPISecret'] as String;
+  static String getFootballAPIToken() {
+    return _config['footballAPIToken'] as String;
   }
 
   static String getRapidAPIHost() {
     return _config['rapidAPIHost'] as String;
   }
 
-  static String getRapidAPIRootUrl() {
-    return _config['rapidAPIRootUrl'] as String;
+  static String getFootballAPIRootUrl() {
+    return _config['footballAPIRootUrl'] as String;
   }
 }
