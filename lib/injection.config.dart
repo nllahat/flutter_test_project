@@ -16,7 +16,11 @@ import 'infrastructure/core/external_sources_injectable_module.dart';
 import 'infrastructure/auth/firebase_auth_facade.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/leagues/i_leagues_repository.dart';
 import 'domain/teams/i_teams_repository.dart';
+import 'application/leagues/leagues_bloc.dart';
+import 'infrastructure/leagues/leagues_local_data_source.dart';
+import 'infrastructure/leagues/leagues_repository.dart';
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'application/teams/teams_bloc.dart';
 import 'infrastructure/teams/teams_remote_data_source.dart';
@@ -41,6 +45,7 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseAuth>(() => firebaseInjectableModule.firebaseAuth);
   gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectableModule.googleSignIn);
+  gh.factory<LeaguesLocalDataSource>(() => LeaguesLocalDataSource());
   gh.factory<TeamsRemoteDataSource>(
       () => TeamsRemoteDataSource(client: get<Client>()),
       registerFor: {_prod});
@@ -52,10 +57,15 @@ GetIt $initGetIt(
             get<UserRepository>(),
           ),
       registerFor: {_prod});
+  gh.lazySingleton<ILeaguesRepository>(
+      () => LeaguesRepository(
+          leaguesLocalDataSource: get<LeaguesLocalDataSource>()),
+      registerFor: {_prod});
   gh.lazySingleton<ITeamsRepository>(
       () =>
           TeamsRepository(teamsRemoteDataSource: get<TeamsRemoteDataSource>()),
       registerFor: {_prod});
+  gh.factory<LeaguesBloc>(() => LeaguesBloc(get<ILeaguesRepository>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<IAuthFacade>()));
   gh.factory<TeamsBloc>(() => TeamsBloc(get<ITeamsRepository>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));

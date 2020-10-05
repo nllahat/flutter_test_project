@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Premier League",
+    "logo": "https://media.api-football.com/leagues/2.png",
+    "country": "England"
+  },
+  {
+    "id": "2",
+    "name": "Premier League",
+    "logo": "https://media.api-football.com/leagues/2.png",
+    "country": "England"
+  },
+  {
+    "id": "3",
+    "name": "Premier League",
+    "logo": "https://media.api-football.com/leagues/2.png",
+    "country": "England"
+  }
+]

@@ -16,6 +16,7 @@ class AppWidget extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
+            theme: ThemeData(fontFamily: 'Nunito'),
             title: 'onfield',
             debugShowCheckedModeBanner: false,
             builder: ExtendedNavigator(router: Route.Router())));

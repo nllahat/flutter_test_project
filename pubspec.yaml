@@ -64,6 +64,7 @@ flutter:
   assets:
     - config/
     - steps.json
+    - leagues.json
     - assets/images/
 
   # The following line ensures that the Material Icons font is
@@ -97,3 +98,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+fonts:
+  - family: Nunito
+    fonts:
+      - asset: fonts/Nunito-Regular.ttf
+      - asset: fonts/Nunito-SemiBold.ttf
+      - asset: fonts/Nunito-Italic.ttf
+        style: italic

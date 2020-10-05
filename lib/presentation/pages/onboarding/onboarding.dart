@@ -41,97 +41,104 @@ class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xff080D11),
         body: Stack(
-      children: <Widget>[
-        PageView.builder(
-          controller: pageController,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: onboardData.length,
-          itemBuilder: (context, index) {
-            return OnboardingPage(
-              pageController: pageController,
-              pageModel: onboardData[index],
-            );
-          },
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // width: double.infinity,
-          //height: 70,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 80.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                textBaseline: TextBaseline.alphabetic,
-                children: <Widget>[
-                  Text(
-                    'on field',
-                    style: TextStyle(color: Colors.black, fontSize: 40.0),
-                  ),
-                ],
-              ),
+          children: <Widget>[
+            PageView.builder(
+              controller: pageController,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: onboardData.length,
+              itemBuilder: (context, index) {
+                return OnboardingPage(
+                  pageController: pageController,
+                  pageModel: onboardData[index],
+                );
+              },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                textBaseline: TextBaseline.alphabetic,
-                children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 70.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: <Widget>[
+                      Text(
+                        'on field',
+                        style: TextStyle(color: Colors.white, fontSize: 50.0),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 70,
+                        child: VerticalDivider(
+                          color: Color(0xff54FFF9),
+                          thickness: 5,
+                          width: 10,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                      Text(
+                        titleString,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30.0,
+                            wordSpacing: 1.0),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                   SizedBox(
-                    height: 70,
-                    child: VerticalDivider(
-                      color: Colors.lightBlue,
-                      thickness: 5,
-                      width: 10,
+                    width: 160.0,
+                    height: 41.0,
+                    child: RaisedButton(
+                      color: Color(0xffD94853),
+                      onPressed: () {},
+                      child: Text(
+                        'next',
+                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
                     ),
                   ),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  Text(
-                    titleString,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(color: Colors.black, fontSize: 30.0),
+                  Padding(
+                    padding: EdgeInsets.all(50.0),
+                    child: LinearPercentIndicator(
+                      progressColor: Colors.lightBlue,
+                      lineHeight: 14.0,
+                      percent: currentPageIndex / onboardData.length,
+                      linearStrokeCap: LinearStrokeCap.roundAll,
+                      backgroundColor: Colors.grey,
+                    ),
                   ),
                 ],
-              ),
-            ),
-          ],
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 200.0,
-                child: RaisedButton(
-                  color: Colors.red,
-                  onPressed: () {},
-                  child: Text(
-                    'next >',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(50.0),
-                child: LinearPercentIndicator(
-                  progressColor: Colors.lightBlue,
-                  lineHeight: 14.0,
-                  percent: currentPageIndex / onboardData.length,
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  backgroundColor: Colors.grey,
-                ),
-              ),
-            ],
-          ), /*Padding(
+              ), /*Padding(
                 padding: const EdgeInsets.only(),
                 child: 
                  PageViewIndicator(
@@ -140,8 +147,8 @@ class _OnboardingState extends State<Onboarding> {
                   color: colorProvider.color,
                 ),
               ),*/
-        )
-      ],
-    ));
+            )
+          ],
+        ));
   }
 }

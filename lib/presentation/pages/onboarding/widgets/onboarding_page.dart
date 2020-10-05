@@ -57,76 +57,54 @@ class _OnboardingPageState extends State<OnboardingPage>
     return Stack(
       children: <Widget>[
         Container(
-          color: widget.pageModel.primeColor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              /* AnimatedBuilder(
-                animation: heroAnimation,
-                builder: (context, child) {
-                  return Transform.translate(
-                    offset: Offset(heroAnimation.value, 0),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 32.0),
-                      child: Image.asset(widget.pageModel.imagePath),
-                    ),
-                  );
-                },
-              ), */
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Container(
-                  height: 350,
+                  height: 450,
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 30.0),
+                        padding: const EdgeInsets.only(top: 50.0),
                         child: Container(
                           width: double.infinity,
                           height: 70,
                           decoration: BoxDecoration(
-                              color: Colors.lightBlue,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xff54FFF9).withAlpha(70),
+                                  blurRadius: 10.0,
+                                  spreadRadius: 0.0,
+                                  offset: Offset(
+                                    0.0,
+                                    3.0,
+                                  ),
+                                ),
+                              ],
+                              color: Color(0xff54FFF9),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(15))),
                           child: Align(
                             alignment: Alignment.center,
                             child: Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 18.0),
                               child: Text(widget.pageModel.questionText,
+                                  textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 20.0)),
+                                      color: Colors.black54, fontSize: 19.0)),
                             ),
                           ),
                         ),
                       ),
-                      Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: widget.pageModel.contentWidget),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          widget.pageModel.subhead,
-                          style: TextStyle(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: widget.pageModel.accentColor,
-                              letterSpacing: 1,
-                              fontStyle: FontStyle.normal),
-                        ),
+                      SizedBox(
+                        height: 30.0,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Text(
-                          widget.pageModel.description,
-                          style: TextStyle(
-                            fontSize: 18,
-                            color:
-                                widget.pageModel.accentColor.withOpacity(0.9),
-                          ),
-                        ),
-                      ),
+                      widget.pageModel.contentWidget,
                     ],
                   ),
                 ),
