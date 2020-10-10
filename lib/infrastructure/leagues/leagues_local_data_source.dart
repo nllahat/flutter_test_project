@@ -20,6 +20,14 @@ class LeaguesLocalDataSource implements ILeaguesLocalDataSource {
     String jsonString = await _loadFromAsset();
     final List<dynamic> jsonResponse = jsonDecode(jsonString);
     return jsonResponse.map((e) => LeagueDto.fromJson(e)).toList();
-    // return jsonResponse as List<LeagueDto>;
+  }
+
+  @override
+  Future<LeagueDto> getById(String id) async {
+    String jsonString = await _loadFromAsset();
+    final List<dynamic> jsonResponse = jsonDecode(jsonString);
+
+    dynamic obj = jsonResponse.indexOf((e) => e.id);
+    return LeagueDto.fromJson(obj);
   }
 }

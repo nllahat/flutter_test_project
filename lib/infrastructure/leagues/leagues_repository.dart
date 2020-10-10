@@ -29,4 +29,11 @@ class LeaguesRepository implements ILeaguesRepository {
       return Left(LeagueFailure.unexpected());
     }
   }
+
+  @override
+  Future<Either<LeagueFailure, League>> getById(String id) async {
+    final result = await this.leaguesLocalDataSource.getById(id);
+
+    return Right(result.toDomain());
+  }
 }

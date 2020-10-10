@@ -4,7 +4,7 @@ import 'package:my_proj/domain/teams/team.dart';
 import 'package:meta/meta.dart';
 
 class TeamModel extends Equatable {
-  final int teamId;
+  final String teamId;
   final String teamName;
   final String logo;
 
@@ -13,9 +13,7 @@ class TeamModel extends Equatable {
 
   factory TeamModel.fromJson(Map<String, dynamic> json) {
     return TeamModel(
-        teamId: json['team_id'],
-        teamName: json['team_name'],
-        logo: json['logo']);
+        teamId: json['id'], teamName: json['name'], logo: json['logo']);
   }
 
   Team toDomain() {

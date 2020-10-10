@@ -3,18 +3,21 @@
     "id": "1",
     "name": "Premier League",
     "logo": "https://media.api-football.com/leagues/2.png",
-    "country": "England"
+    "country": "England",
+    "teams": ["33", "46", "34", "47", "35", "43", "36"]
   },
   {
     "id": "2",
-    "name": "Premier League",
-    "logo": "https://media.api-football.com/leagues/2.png",
-    "country": "England"
+    "name": "Championship",
+    "logo": "https://media.api-football.com/leagues/3.png",
+    "country": "England",
+    "teams": ["33", "46", "34", "47", "35", "43", "36"]
   },
   {
     "id": "3",
-    "name": "Premier League",
-    "logo": "https://media.api-football.com/leagues/2.png",
-    "country": "England"
+    "name": "League One",
+    "logo": "https://media.api-football.com/leagues/164.png",
+    "country": "England",
+    "teams": ["33", "46", "34", "47", "35", "43", "36"]
   }
 ]

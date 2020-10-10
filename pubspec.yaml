@@ -65,6 +65,7 @@ flutter:
     - config/
     - steps.json
     - leagues.json
+    - teams.json
     - assets/images/
 
   # The following line ensures that the Material Icons font is

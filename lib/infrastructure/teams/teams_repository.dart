@@ -1,33 +1,42 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:my_proj/infrastructure/teams/teams_local_data_source.dart';
 
 import '../../domain/teams/i_teams_repository.dart';
 import '../../domain/teams/team.dart';
 import '../../domain/teams/team_failure.dart';
 import '../core/exceptions.dart';
-import 'teams_remote_data_source.dart';
 
 @prod
 @LazySingleton(as: ITeamsRepository)
 class TeamsRepository implements ITeamsRepository {
-  final TeamsRemoteDataSource teamsRemoteDataSource;
+  final TeamsLocalDataSource _teamsLocalDataSource;
 
-  TeamsRepository({@required this.teamsRemoteDataSource});
+  TeamsRepository(this._teamsLocalDataSource);
 
   @override
-  Future<Either<TeamFailure, List<Team>>> getAll(String leagueId) async {
+  Future<Either<TeamFailure, Map<String, List<Team>>>> getAll(
+      List<String> leagueIds) async {
     try {
-      final result =
-          await this.teamsRemoteDataSource.getTeamsByLeagueId(leagueId);
+      Map<String, List<Team>> map = Map();
 
-      final teams = result.map((teamModel) {
-        return teamModel.toDomain();
-      }).toList();
+      for (var i = 0; i < leagueIds.length; i++) {
+        final result =
+            await this._teamsLocalDataSource.getTeamsByLeagueId(leagueIds[i]);
 
-      return Right(teams);
+        map[leagueIds[i]] = result.map((e) => e.toDomain()).toList();
+      }
+
+      return Right(map);
     } on ServerException {
       return Left(TeamFailureUnexpected());
     }
+  }
+
+  @override
+  Future<Either<TeamFailure, Team>> getById(String teamId) {
+    // TODO: implement getById
+    throw UnimplementedError();
   }
 }

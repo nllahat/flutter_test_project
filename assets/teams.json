@@ -1,0 +1,37 @@
+[
+  {
+    "id": "33",
+    "name": "Manchester United",
+    "logo": "https://media.api-sports.io/football/teams/33.png"
+  },
+  {
+    "id": "46",
+    "name": "Leicester",
+    "logo": "https://media.api-sports.io/football/teams/46.png"
+  },
+  {
+    "id": "34",
+    "name": "Newcastle",
+    "logo": "https://media.api-sports.io/football/teams/34.png"
+  },
+  {
+    "id": "47",
+    "name": "Tottenham",
+    "logo": "https://media.api-sports.io/football/teams/47.png"
+  },
+  {
+    "id": "35",
+    "name": "Bournemouth",
+    "logo": "https://media.api-sports.io/football/teams/35.png"
+  },
+  {
+    "id": "43",
+    "name": "Cardiff",
+    "logo": "https://media.api-sports.io/football/teams/43.png"
+  },
+  {
+    "id": "36",
+    "name": "Fulham",
+    "logo": "https://media.api-sports.io/football/teams/36.png"
+  }
+]
